@@ -1,0 +1,35 @@
+using System;
+using System.IO;
+
+class MAIN  {
+    public static void Main(string[] args) {
+        var rows = Convert.ToInt32(Console.ReadLine());
+
+        while(rows != 0) 
+        {
+            var N = Convert.ToInt32(Console.ReadLine());
+            var perfect = 1;
+            for(int i = 2; i * i <= N; i++) 
+            {
+                if(N%i == 0) 
+                {
+                    perfect += i;
+                    if(N/i != N) 
+                    {
+                        perfect += N/i;
+                    }
+                }
+            }
+            if(perfect == N) 
+            {
+                Console.WriteLine("YES");
+            }
+            else
+            {
+                Console.WriteLine("NO");
+            }
+            rows--;
+        }
+        
+    }
+}
